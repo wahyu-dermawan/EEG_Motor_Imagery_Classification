@@ -1,0 +1,90 @@
+%%%%%%%%%% parseEpochs.m %%%%%%%%%%
+clc
+clear all
+close all
+
+channels={'F4','T8','C4','Cz','P4','HEOG'};
+EPOCHS=[];
+
+%load data file:
+load('S01.mat');
+
+%load(trueLabelName);
+trueLabel=data{1,1}.y;
+
+%set channels:
+channel_indexes=[];
+for chi=1:numel(channels)
+    for chj=1:numel(data{1,1}.channel_names)
+        if(strcmpi(data{1,1}.channel_names{chj},channels{chi}))
+            channel_indexes(chi)=chj;
+            break;
+        end
+    end
+    if(~strcmpi(data{1,1}.channel_names{chj},channels{chi}))
+        fprintf('channel name %s not found!\n',channels{chi});
+        return;
+    end
+end
+
+%gen number of channels:
+N=numel(channel_indexes);
+
+%get number of events:
+ev_sz=numel(2*data{1,1}.trial_end);
+
+%epoch offset in seconds
+epoch_offset=5;
+true_y = data{1,1}.y;
+
+for ei=1:ev_sz
+    epst=data{1,1}.trial_end(ei)-ceil(data{1,1}.fs*epoch_offset);
+    epend=data{1,1}.trial_end(ei)+ceil(data{1,1}.fs*epoch_offset);
+    data_=0.1*double(data{1,1}.X(epst:epend,channel_indexes));
+    EPOCHS.EPDT{ei}=data_';
+    EPOCHS.EPLB(ei)=true_y(ei);
+end
+
+%set channel names, sampling rate, trig time
+EPOCHS.channelNames=channels;
+EPOCHS.fs=data{1,1}.fs;
+EPOCHS.trigtime=epoch_offset;
+
+%%%%%%%%%% Calling Function %%%%%%%%%%
+
+%parameter untuk filter 'butter'
+fparams.filterFreq=[8,30];
+fparams.filterType='butter';
+fparams.filterDegree=5;
+fparams.fs=EPOCHS.fs;
+EPOCHSOUT=filterEpochs(EPOCHS,fparams)
+
+%parameter trigger time crop
+cparams.t0=1; %after motor imagery trigger
+cparams.t1=4; %after motor imagery trigger
+EPOCHSOUT=cropEpochs(EPOCHS,cparams)
+
+%spitting epoch 
+
+TRIDX = logical(data{1,1}.y);
+TSIDX = logical(data{1,1}.y);
+[TRDT,TSDT,TRLB,TSLB]=splitEpochs(EPOCHS,TRIDX,TSIDX)
+
+
+TSDATA = EPOCHS.EPDT;
+TRDATA = EPOCHS.EPDT;
+
+%CSP parameter 
+params.classifier='LDA';
+trainParams.m=2;
+%[WCSP,L]=train_csp(TRDATA,TRLB,trainParams);
+
+%CSP parameter test
+%[LABELS,ZTR,ZTS]=test_csp(TSDATA,TRDATA,TRLB,WCSP,params);
+
+%Parameter untuk FBCSSP
+params.bands=[2,10; 8,16; 14,22; 20,28; 26,34; 32,40; 38,46];
+params.fs=EPOCHS.fs;
+params.P=20;
+params.m=2;
+params.r=1;
