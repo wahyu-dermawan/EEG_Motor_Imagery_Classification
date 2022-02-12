@@ -69,6 +69,7 @@ The input parameters used in this FBCSSP include several things which will be ex
 Figure 9. Feature Distribution
  
 ![image](https://user-images.githubusercontent.com/66156137/153706109-e99c1730-8e46-40b1-a799-75fd9b43b58d.png)
+
 Figure 10. Feature after Classified by LDA
 
 Performance evaluation results can be provided after undergoing data processing. The data are the results obtained from 2 classes of data, namely holding and opening the palm of the hand with an inmate and carried out three data retrieval experiments, so that the data is divided into dataset '1', dataset '2' and dataset '3'. In Table 1 shown that do cross validation with k = 4 or 4-fold. The table reports the accuracy values of each trial. Shown in every fold cross-validation this is done with the aim of minimizing the possibility of producing good performance just by chance [14]. This cross-validation can prove that the algorithm used is a robust algorithm and it can also be seen that the data set 1 to data set 3 has a mean accuracy of 83.33% to 87.50%. 
@@ -86,20 +87,34 @@ Based on the results of the research on the classification of open class and rel
 
  
 [1]	Soekadar, S. R. et al. (2015) ‘An EEG/EOG-based hybrid brain-neural computer interaction (BNCI) system to control an exoskeleton for the paralyzed hand’, Biomedizinische Technik, 60(3), pp. 199–205. doi: 10.1515/bmt-2014-0126.
+
 [2]	Martin, A. et al. (2012) Dynamic Sling to Support Upper Extremity Post Brachial Plexus Injury to Return to Active Lifestyle.
+
 [3]	Prieto, G. A. and Cano-de-la-cuerda, R. (2014) ‘Chapter 1 Emerging Perspectives in Stroke Rehabilitation’, (August). doi: 10.1007/978-3-642-38556-8.
+
 [4]	Daniel, C. et al. (2019) Classification of Motor Imagery EEG Signals with CSP Filtering Through Neural Networks Models Classification of Motor Imagery EEG Signals with CSP Filtering Through Neural Networks Models. Springer International Publishing. doi: 10.1007/978-3-030-04491-6.
+
 [5]	Kopowski, J. et al. (2019) ‘Bydgostian hand exoskeleton - Own concept and the biomedical factors’, Bio-Algorithms and Med-Systems, 15(1), pp. 1–7. doi: 10.1515/bams-2019-0003.
+
 [6]	Li, M. et al. (2019) ‘An attention-controlled hand exoskeleton for the rehabilitation of finger extension and flexion using a rigid-soft combined mechanism’, Frontiers in Neurorobotics, 13(May), pp. 1–13. doi: 10.3389/fnbot.2019.00034.
+
 [7]	Soekadar, S. R. et al. (2015) ‘An EEG/EOG-based hybrid brain-neural computer interaction (BNCI) system to control an exoskeleton for the paralyzed hand’, Biomedizinische Technik, 60(3), pp. 199–205. doi: 10.1515/bmt-2014-0126.
+
 [8]	Aydemir, Ö. (2016) ‘Common spatial pattern-based feature extraction from the best time segment of BCI data’, Turkish Journal of Electrical Engineering and Computer Sciences, 24(5), pp. 3976–3986. doi: 10.3906/elk-1502-162.
+
 [9]	Yuksel, A. and Olmez, T. (2015) ‘A Neural Network-Based Optimal Spatial Filter Design Method for Motor Imagery Classification’, pp. 1–21. doi: 10.1371/journal.pone.0125039.
 [10]	Khorshidtalab, A., Salami, M. J. E. and Hamedi, M. (2012) ‘Evaluating the effectiveness of time-domain features for motor imagery movements using SVM’, 2012 International Conference on Computer and Communication Engineering, ICCCE 2012, (June 2014), pp. 909–913. doi: 10.1109/ICCCE.2012.6271348.
+
 [11]	Hu, L. and Zhang, Z. (2019) EEG Signal Processing and Feature, Springer Nature Singapore Pte Ltd. 2019.
+
 [12]	Wang, Y. and Gao, X. (2007) ‘Design of electrode layout for motor imagery based brain--computer interface imagery based brain – computer interface’, (September 2014), pp. 9–11. doi: 10.1049/el.
+
 [13]	Samek, W. and Vidaurre, C. (2012) Stationary Common Spatial Patterns for Brain-Computer Interfacing.
+
 [14] Seni, G. (2010) Ensemble Methods in Data Mining: Improving Accuracy Through Combining Predictions. SYNTHESIS LECTURES ONDATAMININGAND KNOWLEDGE DISCOVERY.
+
 [15]	Tariq, M., Id, P. M. T. and Id, M. S. (2020) ‘and EEG classification of left-right foot dorsiflexion kinaesthetic motor imagery for’, pp. 1–20. doi: 10.1371/journal.pone.0230184.
+
 [16]	Pfurtscheller, G. et al. (2006) ‘Mu rhythm ( de ) synchronization and EEG single-trial classification of different motor imagery tasks’, 31, pp. 153–159. doi: 10.1016/j.neuroimage.2005.12.003.
 
 
